@@ -22,3 +22,5 @@ The public API calls work. The protected API calls fail with a 401 Unauthorized.
 Challenges are:
 1. Where is our access token?
 2. Confirm we can call both APIs when we have the access token
+
+(The appsettings.json files have placeholders for the various domains/ids and are stored in user secrets locally)
