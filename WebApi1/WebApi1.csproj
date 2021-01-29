@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<UserSecretsId>1c2b2684-8112-49dd-8a0f-932e58ee1627</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Identity.Web" Version="1.*" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+	</ItemGroup>
+
+</Project>

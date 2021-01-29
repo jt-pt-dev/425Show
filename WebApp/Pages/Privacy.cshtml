@@ -1,0 +1,46 @@
+﻿@page
+@model PrivacyModel
+@using Microsoft.AspNetCore.Authentication
+@{
+	ViewData["Title"] = "Privacy Policy";
+}
+
+<div class="row">
+	<div class="col-12 mb-2">
+		<h1>@ViewData["Title"]</h1>
+		<p>This page requires authentication.</p>
+		<h3>Api tests</h3>
+	</div>
+	<div class="col-6">
+		<h5>Api 1</h5>
+		<p><a asp-page-handler="WebApi1Public" class="btn btn-outline-secondary mr-2">Public</a> <a asp-page-handler="WebApi1Protected" class="btn btn-outline-secondary">Protected</a></p>
+	</div>
+	<div class="col-6">
+		<h5>Api 2</h5>
+		<p><a asp-page-handler="WebApi2Public" class="btn btn-outline-secondary mr-2">Public</a> <a asp-page-handler="WebApi2Protected" class="btn btn-outline-secondary">Protected</a></p>
+	</div>
+	<div class="col-12 mt-2">
+		Api response: @Model.ApiResponse
+	</div>
+	<hr class="col-12" />
+	<div class="col-12 mt-4 small">
+		<h5>Claims</h5>
+		<dl>
+			@foreach (var claim in User.Claims)
+			{
+				<dt>@claim.Type</dt>
+				<dd>@claim.Value</dd>
+			}
+		</dl>
+
+		<h5 class="mt-2">Properties</h5>
+
+		<dl>
+			@foreach (var prop in (await AuthenticationHttpContextExtensions.AuthenticateAsync(Model.HttpContext)).Properties.Items)
+			{
+				<dt>@prop.Key</dt>
+				<dd>@prop.Value</dd>
+			}
+		</dl>
+	</div>
+</div>
